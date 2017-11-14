@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMiniGigApp.Web", "MvcMiniGigApp.Web\MvcMiniGigApp.Web.csproj", "{794287F2-3E37-41BD-832A-323ADB0710C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMiniGigApp.Data", "MvcMiniGigApp.Data\MvcMiniGigApp.Data.csproj", "{0C58133F-7C09-4D0E-8EC1-043AB2977A83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMiniGigApp.Domain", "MvcMiniGigApp.Domain\MvcMiniGigApp.Domain.csproj", "{A54118F8-965C-4688-8D08-FB821AAAB681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMiniGigApp.Tests.Data", "MvcMiniGigApp.Tests.Data\MvcMiniGigApp.Tests.Data.csproj", "{D7FB7E1E-A50B-43E9-AA0B-5E1C44CF9D12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel", "SharedKernel\SharedKernel.csproj", "{EA938618-84F9-48B9-8EAE-A1145DF8FC97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel.Data", "SharedKernel.Data\SharedKernel.Data.csproj", "{2CB1DCC3-D94A-493F-8AC4-9F0BC0B75603}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{794287F2-3E37-41BD-832A-323ADB0710C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794287F2-3E37-41BD-832A-323ADB0710C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794287F2-3E37-41BD-832A-323ADB0710C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794287F2-3E37-41BD-832A-323ADB0710C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C58133F-7C09-4D0E-8EC1-043AB2977A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C58133F-7C09-4D0E-8EC1-043AB2977A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C58133F-7C09-4D0E-8EC1-043AB2977A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C58133F-7C09-4D0E-8EC1-043AB2977A83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54118F8-965C-4688-8D08-FB821AAAB681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54118F8-965C-4688-8D08-FB821AAAB681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54118F8-965C-4688-8D08-FB821AAAB681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54118F8-965C-4688-8D08-FB821AAAB681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7FB7E1E-A50B-43E9-AA0B-5E1C44CF9D12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7FB7E1E-A50B-43E9-AA0B-5E1C44CF9D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7FB7E1E-A50B-43E9-AA0B-5E1C44CF9D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7FB7E1E-A50B-43E9-AA0B-5E1C44CF9D12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA938618-84F9-48B9-8EAE-A1145DF8FC97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA938618-84F9-48B9-8EAE-A1145DF8FC97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA938618-84F9-48B9-8EAE-A1145DF8FC97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA938618-84F9-48B9-8EAE-A1145DF8FC97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB1DCC3-D94A-493F-8AC4-9F0BC0B75603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB1DCC3-D94A-493F-8AC4-9F0BC0B75603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB1DCC3-D94A-493F-8AC4-9F0BC0B75603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB1DCC3-D94A-493F-8AC4-9F0BC0B75603}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
