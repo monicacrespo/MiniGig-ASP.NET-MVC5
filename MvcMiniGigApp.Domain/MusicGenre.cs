@@ -1,10 +1,9 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MvcMiniGigApp.Domain
 {
     /// <summary>
-    /// Class which contains the musicType data
+    /// Class which contains the music genre data
     /// </summary>
     public class MusicGenre
     {

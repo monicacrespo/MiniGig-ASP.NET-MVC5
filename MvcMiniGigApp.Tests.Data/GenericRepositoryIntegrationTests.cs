@@ -17,14 +17,14 @@ namespace MvcMiniGigApp.Tests.Data
     private string _log;
     private MiniGigContext _context;
     private GenericRepository<Gig> _gigRepository;
-    private GenericRepository<MusicGenre> _musicTypeRepository;
+    private GenericRepository<MusicGenre> _musicGenreRepository;
 
 
     public GenericRepositoryIntegrationTests() {
       Database.SetInitializer(new NullDatabaseInitializer<MiniGigContext>());
       _context = new MiniGigContext();
       _gigRepository = new GenericRepository<Gig>(_context);
-      _musicTypeRepository = new GenericRepository<MusicGenre>(_context);
+      _musicGenreRepository = new GenericRepository<MusicGenre>(_context);
       SetupLogging();
     }
 
@@ -37,7 +37,7 @@ namespace MvcMiniGigApp.Tests.Data
 
     [TestMethod]
     public void CanFindByMusicGenreByKeyWithDynamicLambda() {
-      var results = _musicTypeRepository.FindByKey(1);
+      var results = _musicGenreRepository.FindByKey(1);
       WriteLog();
       Assert.IsTrue(_log.Contains("FROM [dbo].[MusicGenres"));
     }

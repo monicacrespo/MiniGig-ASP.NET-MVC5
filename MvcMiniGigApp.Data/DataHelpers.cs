@@ -4,12 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MvcMiniGigApp.Data
 {
-  public class DataHelpers
+    public class DataHelpers
   {
     public static void NewDbWithSeed() {
      
