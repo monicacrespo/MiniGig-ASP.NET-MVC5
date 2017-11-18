@@ -1,7 +1,7 @@
 # MiniGig-ASP.NET-MVC5
-MiniGig ASP.NET MVC 5 is a web based application built using Visual Studio 2015 in C# .NET 4.6.1, ASP.NET MVC 5 and Code First EF6.x
+MiniGig ASP.NET MVC 5 is a web based application created in Visual Studio 2015 Professional and C# .NET 4.6.1.
 
-The motivation was to upgrade MiniGig Web App using ASP.NET MVC 5, Code First Entity Framework 6.2.0 and testing code without hitting the database with the test mock 
+The motivation was to upgrade MiniGig Web App using ASP.NET MVC 5, Code First with Entity Framework 6.2.0 using localdb and testing code without hitting the database with the test mock 
 support introduced in EF6.
 
 
