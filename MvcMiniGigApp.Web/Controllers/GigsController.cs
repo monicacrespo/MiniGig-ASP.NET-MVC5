@@ -2,27 +2,22 @@
 using System.Net;
 using System.Web.Mvc;
 using MvcMiniGigApp.Domain;
-using DisconnectedGenericRepository;
 using PagedList;
-
+using MvcMiniGigApp.Services;
 namespace MvcMiniGigApp.Controllers
 {
     public class GigsController : Controller
     {
-        private GenericRepository<Gig> gigRepository;
-        private GenericRepository<MusicGenre> musicGenreRepository;
-
-        public GigsController(GenericRepository<Gig> _gigRepository,
-                                GenericRepository<MusicGenre> _musicGenreRepository)
+        private IGigService gigService;
+        public GigsController(IGigService _gigService)
         {
-            gigRepository = _gigRepository;
-            musicGenreRepository = _musicGenreRepository;
+            gigService = _gigService;
         }
 
         // GET: Gigs
         public ActionResult Index(int? page)
         {
-            var listUnpaged = gigRepository.AllInclude(g => g.MusicGenre);
+            var listUnpaged = gigService.GetGigs();
 
             const int pageSize = 10;
             int pageNumber = (page ?? 1);
@@ -38,7 +33,7 @@ namespace MvcMiniGigApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var gig = gigRepository.FindByInclude(c => c.Id == id.Value, c => c.MusicGenre).FirstOrDefault();
+            var gig = gigService.GetGig(id.Value);
             if (gig == null)
             {
                 return HttpNotFound();
@@ -49,7 +44,7 @@ namespace MvcMiniGigApp.Controllers
         // GET: Gigs/Create
         public ActionResult Create()
         {
-            ViewBag.MusicGenreId = new SelectList(musicGenreRepository.All(), "Id", "Category");
+            ViewBag.MusicGenreId = new SelectList(gigService.GetMusicGenres(), "Id", "Category");
             return View();
         }
 
@@ -62,11 +57,11 @@ namespace MvcMiniGigApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                gigRepository.Insert(gig);
+                gigService.CreateGig(gig);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MusicGenreId = new SelectList(musicGenreRepository.All(), "Id", "Category", gig.MusicGenreId);
+            ViewBag.MusicGenreId = new SelectList(gigService.GetMusicGenres(), "Id", "Category", gig.MusicGenreId);
             return View(gig);
         }
 
@@ -77,12 +72,12 @@ namespace MvcMiniGigApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Gig gig = gigRepository.FindByKey(id.Value);
+            var gig = gigService.GetGig(id.Value);
             if (gig == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MusicGenreId = new SelectList(musicGenreRepository.All(), "Id", "Category", gig.MusicGenreId);
+            ViewBag.MusicGenreId = new SelectList(gigService.GetMusicGenres(), "Id", "Category", gig.MusicGenreId);
             return View(gig);
         }
 
@@ -95,10 +90,10 @@ namespace MvcMiniGigApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                gigRepository.Update(gig);
+                gigService.UpdateGig(gig);
                 return RedirectToAction("Index");
             }
-            ViewBag.MusicGenreId = new SelectList(musicGenreRepository.All(), "Id", "Category", gig.MusicGenreId);
+            ViewBag.MusicGenreId = new SelectList(gigService.GetMusicGenres(), "Id", "Category", gig.MusicGenreId);
             return View(gig);
         }
 
@@ -109,7 +104,7 @@ namespace MvcMiniGigApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var gig = gigRepository.FindByInclude(c => c.Id == id.Value, c => c.MusicGenre).FirstOrDefault();
+            var gig = gigService.GetGig(id.Value);
 
             if (gig == null)
             {
@@ -124,7 +119,7 @@ namespace MvcMiniGigApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            gigRepository.Delete(id);
+            gigService.DeleteGig(id);
             return RedirectToAction("Index");
         }
     }

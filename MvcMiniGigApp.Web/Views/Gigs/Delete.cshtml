@@ -11,15 +11,7 @@
 <div>
     <h4>Gig</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MusicGenre.Category)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MusicGenre.Category)
-        </dd>
-
+    <dl class="dl-horizontal">     
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -35,7 +27,13 @@
         <dd>
             @Html.DisplayFor(model => model.GigDate)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MusicGenre.Category)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.MusicGenre.Category)
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {

@@ -20,6 +20,7 @@ namespace MvcMiniGigApp.DependencyResolution
     using StructureMap;
     using Data;
     using System.Data.Entity;
+    using Services;
 
     public class DefaultRegistry : Registry {
         #region Constructors and Destructors
@@ -33,6 +34,8 @@ namespace MvcMiniGigApp.DependencyResolution
                 });
             //For<IExample>().Use<Example>();
             For<DbContext>().Use<MiniGigContext>().Transient();
+
+            For<IGigService>().Use<GigService>().Transient();
 
             //Alternate
             //For(typeof(GenericRepository<>))

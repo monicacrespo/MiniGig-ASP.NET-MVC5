@@ -304,9 +304,9 @@
       <Project>{a54118f8-965c-4688-8d08-fb821aaab681}</Project>
       <Name>MvcMiniGigApp.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharedKernel.Data\SharedKernel.Data.csproj">
-      <Project>{2cb1dcc3-d94a-493f-8ac4-9f0bc0b75603}</Project>
-      <Name>SharedKernel.Data</Name>
+    <ProjectReference Include="..\MvcMiniGigApp.Services\MvcMiniGigApp.Services.csproj">
+      <Project>{ed0ff581-8575-4566-b885-5053db93127e}</Project>
+      <Name>MvcMiniGigApp.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,22 +1,22 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvcMiniGigApp.Data;
+﻿using DisconnectedGenericRepository;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcMiniGigApp.Domain;
+using SharedKernel.Data;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using Moq;
-using DisconnectedGenericRepository;
-using System;
-using SharedKernel.Data;
-
-namespace MvcMiniGigApp.Tests.Data
+namespace MvcMiniGigApp.Data.Tests
 {
+    /// <summary>
+    /// Summary description for GenericRepositoryMoqTests
+    /// </summary>
     [TestClass]
-    public class UnitTestsWithMoq
+    public class GenericRepositoryMoqTests
     {
-        public UnitTestsWithMoq()
+        public GenericRepositoryMoqTests()
         {
-            //app.config points to a special testing database
             Database.SetInitializer(new DropCreateDatabaseAlways<MiniGigContext>());
         }
 
@@ -186,6 +186,5 @@ namespace MvcMiniGigApp.Tests.Data
             }
             return gigsInMemory;
         }
-
     }
 }
