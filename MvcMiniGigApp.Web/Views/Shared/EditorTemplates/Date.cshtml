@@ -1,2 +1,25 @@
 ﻿@model DateTime?
-@Html.TextBoxFor(model => Model, "{0:dd/MM/yyyy}",   new {@class = "form-control jqueryui-marker-datepicker" })
+<script type="text/javascript">
+    $(document).ready(function () {
+        var $dateValue = "@(Model != null ? Model.Value.ToString("dd/MM/yyyy") : DateTime.Now.ToString("dd/MM/yyyy"))";     
+        var $datepicker = $(".jqueryui-marker-datepicker");
+        $datepicker.datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true,
+            showOn: "button",
+            buttonImage: "/Content/themes/base/images/calendar.gif",
+            buttonImageOnly: true,
+            buttonText: "Select date",
+            yearRange: "1925:2030"
+        }).css("display", "inline-block").next("button").button({
+            icons: { primary: "ui-icon-calendar" },
+            label: "Select a date",
+            text: false
+        });
+        $datepicker.datepicker('setDate', $dateValue);
+        //setDate() is a method, not an option. And to call any object, object must be initialized
+    });
+</script>
+            
+@Html.TextBoxFor(model => Model, "{0:dd/MM/yyyy}", new { @class = "form-control jqueryui-marker-datepicker" })

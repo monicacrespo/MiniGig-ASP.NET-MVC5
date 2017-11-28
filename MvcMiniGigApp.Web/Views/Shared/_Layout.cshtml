@@ -7,6 +7,9 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -33,29 +36,7 @@
         <footer>
             <p>&copy; @DateTime.Now.Year - Mini Gig ASP.NET MVC Application</p>
         </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryui")
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".jqueryui-marker-datepicker").datepicker({
-                dateFormat: 'dd/mm/yy',
-                changeMonth: true,
-                changeYear: true,
-                showOn: "button",
-                buttonImage: "/Content/themes/base/images/calendar.gif",
-                buttonImageOnly: true,
-                buttonText: "Select date",
-                yearRange: "1925:2030"
-            }).css("display", "inline-block").next("button").button({
-                icons: { primary: "ui-icon-calendar" },
-                label: "Select a date",
-                text: false
-            });
-        });
-    </script>
+    </div>  
     @RenderSection("scripts", required: false)
 </body>
 </html>
