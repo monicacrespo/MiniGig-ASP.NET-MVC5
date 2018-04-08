@@ -9,6 +9,7 @@ namespace MvcMiniGigApp.Domain
     {
         public int Id { get; set; }
 
+        //Alternate keys can not be configured using Data Annotations.
         [Display(Name = "Music Genre")]
         public string Category { get; set; }
     }

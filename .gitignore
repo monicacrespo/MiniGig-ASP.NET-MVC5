@@ -240,3 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/MvcMiniGigApp.Web/Properties/PublishProfiles/Release.pubxml

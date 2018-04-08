@@ -24,11 +24,14 @@ namespace MvcMiniGigApp.Data.Tests
 
         public GenericRepositoryIntegrationTests()
         {
-            Database.SetInitializer(new NullDatabaseInitializer<MiniGigContext>());
+            //Using this initializer disables database initialization for the given context type
+            //Database.SetInitializer(new NullDatabaseInitializer<MiniGigContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MiniGigContext>());
             _context = new MiniGigContext();
             _gigRepository = new GenericRepository<Gig>(_context);
             _musicGenreRepository = new GenericRepository<MusicGenre>(_context);
             SetupLogging();
+           
         }
 
         [TestMethod]

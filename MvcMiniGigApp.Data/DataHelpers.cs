@@ -74,16 +74,16 @@ namespace MvcMiniGigApp.Data
         context.SaveChanges();
 
               
-        context.Database.ExecuteSqlCommand(
-          @"CREATE PROCEDURE GetOldGigs
-                    AS  SELECT * FROM Gigs WHERE GigDate<='1/1/1980'");
+        //context.Database.ExecuteSqlCommand(
+        //  @"CREATE PROCEDURE GetOldGigs
+        //            AS  SELECT * FROM Gigs WHERE GigDate<='1/1/1980'");
 
-        context.Database.ExecuteSqlCommand(
-           @"CREATE PROCEDURE DeleteGigViaId
-                     @Id int
-                     AS
-                     DELETE from Gigs Where Id = @id
-                     RETURN @@rowcount");
+        //context.Database.ExecuteSqlCommand(
+        //   @"CREATE PROCEDURE DeleteGigViaId
+        //             @Id int
+        //             AS
+        //             DELETE from Gigs Where Id = @id
+        //             RETURN @@rowcount");
       }
     }
   }
