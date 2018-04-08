@@ -5,13 +5,20 @@ The motivation was to upgrade MiniGig Web App using ASP.NET MVC 5, Code First wi
 support introduced in EF6.
 
 
-The solution contains six projects:
-* MvcMiniGigApp.Data
-* MvcMiniGigApp.Domain
+The solution contains eight projects:
+* Data
+	* MvcMiniGigApp.Data
+* Domain
+	* MvcMiniGigApp.Domain
+* Services
+	* MvcMiniGigApp.Services
+* Tests	
+	* MvcMiniGigApp.Data.Tests
+	* MvcMiniGigApp.Services.Tests
 * MvcMiniGigApp.Web
 * SharedKernel
 * SharedKernel.Data
-* MvcMiniGigApp.Tests.Data
+
 
 Use Cases:
 *   Create a gig
