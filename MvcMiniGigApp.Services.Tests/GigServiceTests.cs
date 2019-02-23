@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvcMiniGigApp.Services;
 using MvcMiniGigApp.Domain;
 using MvcMiniGigApp.Data;
 using DisconnectedGenericRepository;
-using System.Management.Instrumentation;
 using System.Data.Entity;
 
 namespace MvcMiniGigApp.Services.Tests

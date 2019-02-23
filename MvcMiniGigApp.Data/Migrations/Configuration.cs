@@ -1,11 +1,6 @@
 namespace MvcMiniGigApp.Data.Migrations
 {
-    using Domain;
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
     using MvcMiniGigApp.Data;
 
     internal sealed class Configuration : DbMigrationsConfiguration<MiniGigContext>
