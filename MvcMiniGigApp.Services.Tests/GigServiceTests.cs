@@ -50,7 +50,7 @@ namespace MvcMiniGigApp.Services.Tests
             Gig actual = gigService.GetGig(NON_EXISTENT_GIG_ID);
             Assert.IsNull(actual);
         }
-
+        
         private IEnumerable<Gig> GetDummyGigs(int count)
         {
             var popMusicInMemory = new MusicGenre { Id = 1, Category = "Pop" };

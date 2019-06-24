@@ -1,9 +1,8 @@
-﻿
-using MvcMiniGigApp.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using MvcMiniGigApp.Domain;
 
 namespace MvcMiniGigApp.Data
 {
@@ -29,14 +28,14 @@ namespace MvcMiniGigApp.Data
         var j = new Gig
         {
             Name = "The Chacer's Live Gig",
-            GigDate = new DateTime(2016, 5, 2),
+            GigDate = new DateTime(2019, 5, 2),
             MusicGenreId = 3,
             MusicGenre = punkMusic
         };
         var s = new Gig
         {
             Name = "Ed Sheeran Pop",
-            GigDate = new DateTime(2016, 5, 2),
+            GigDate = new DateTime(2019, 5, 2),
             MusicGenreId = 1,
             MusicGenre = popMusic
 
@@ -44,14 +43,14 @@ namespace MvcMiniGigApp.Data
         var g = new Gig
         {
             Name = "Rozalem",
-            GigDate = new DateTime(2017, 5, 2),
+            GigDate = new DateTime(2019, 5, 2),
             MusicGenreId = 6,
             MusicGenre = flamencoMusic
         };
         var l = new Gig
         {
             Name = "Luis Fonsi & Daddy Yankee",
-            GigDate = new DateTime(2017, 5, 2),
+            GigDate = new DateTime(2019, 5, 2),
             MusicGenreId = 5,
             MusicGenre = reggaetonMusic
         };
@@ -62,7 +61,7 @@ namespace MvcMiniGigApp.Data
             gigList.Add(new Gig
             {
                 Name = string.Format("z{0}", i.ToString()),
-                GigDate = new DateTime(2017, 5, 2),
+                GigDate = new DateTime(2019, 5, 2),
                 MusicGenreId = 1,
                 MusicGenre = popMusic
             });

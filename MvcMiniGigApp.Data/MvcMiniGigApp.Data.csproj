@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MvcMiniGigApp.Data</RootNamespace>
     <AssemblyName>MvcMiniGigApp.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +55,10 @@
     <Compile Include="Migrations\201711131213493_Initial.Designer.cs">
       <DependentUpon>201711131213493_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906241938540_UpdateGigsDate.cs" />
+    <Compile Include="Migrations\201906241938540_UpdateGigsDate.Designer.cs">
+      <DependentUpon>201906241938540_UpdateGigsDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MiniGigContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711131213493_Initial.resx">
       <DependentUpon>201711131213493_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906241938540_UpdateGigsDate.resx">
+      <DependentUpon>201906241938540_UpdateGigsDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

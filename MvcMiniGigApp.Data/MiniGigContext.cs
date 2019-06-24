@@ -1,5 +1,6 @@
-﻿using System.Data.Entity;
+using System.Data.Entity;
 using MvcMiniGigApp.Domain;
+
 namespace MvcMiniGigApp.Data
 {
     public class MiniGigContext: DbContext
