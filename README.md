@@ -1,5 +1,5 @@
 # MiniGig-ASP.NET-MVC5
-MiniGig ASP.NET MVC 5 is a web based application created in Visual Studio 2017 Professional and C# .NET 4.6.1.
+MiniGig ASP.NET MVC 5 is a web based application created in Visual Studio 2017 Professional and C# .NET 4.7.2.
 
 The motivation was to upgrade MiniGig Web App using ASP.NET MVC 5, Code First with Entity Framework 6.2.0 using localdb and testing code without hitting the database with the test mock support introduced in EF6.
 
