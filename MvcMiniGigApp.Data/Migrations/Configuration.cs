@@ -9,7 +9,7 @@ namespace MvcMiniGigApp.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(MvcMiniGigApp.Data.MiniGigContext context)
@@ -18,7 +18,6 @@ namespace MvcMiniGigApp.Data.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-
             DataHelpers.NewDbWithSeed();
         }
     }

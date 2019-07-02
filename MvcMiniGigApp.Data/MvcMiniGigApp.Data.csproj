@@ -51,9 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHelpers.cs" />
-    <Compile Include="Migrations\201906262018541_Initial.cs" />
-    <Compile Include="Migrations\201906262018541_Initial.Designer.cs">
-      <DependentUpon>201906262018541_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201906291619520_Initial.cs" />
+    <Compile Include="Migrations\201906291619520_Initial.Designer.cs">
+      <DependentUpon>201906291619520_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MiniGigContext.cs" />
@@ -72,8 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906262018541_Initial.resx">
-      <DependentUpon>201906262018541_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906291619520_Initial.resx">
+      <DependentUpon>201906291619520_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

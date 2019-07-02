@@ -20,10 +20,16 @@ The solution contains eight projects:
 
 
 Use Cases:
+*   Display list of gigs paged
+    ![picture alt](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/tree/master/MvcMiniGigApp.Web/Images/DisplayNumberOfGigsPerPage.JPG)
 *   Create a gig
     *   Gig identifier, name, date, genre of music
     *   gig identifier automatic generated
 *  Edit the specified gig by its identifier
+   ![picture alt](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/tree/master/MvcMiniGigApp.Web/Images/EditGig.JPG)
+
+   ![picture alt](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/tree/master/MvcMiniGigApp.Web/Images/EditGigDatePicker.JPG)
+
 *  Details of the specified gig by its identifier
 *  Remove the specified gig by its identifier
 
@@ -40,8 +46,10 @@ The code illustrates the following topics:
 
 
 # Getting Started
-I've included logic in to create and seed a database to run the app.
- 
+I've included logic in to create and seed a database using Code First migrations.
+When you run the application and it accesses the database for the first time, Code First uses the MigrateDatabaseToLatestVersion initializer class to check if the database matches the data model. If there's a mismatch, Code First automatically creates the database (if it doesn't exist yet) or updates the database schema to the latest version (if a database exists but doesn't match the model). The application implements a Migrations Seed method, so that the method runs after the database is created or the schema is updated. The Migrations Seed method inserts fictional gigs in the development database LocalDB.
+
+
 Software dependencies
   1. .Net Framework 4.5 or higher
   2.  SQL Express LocalDB (v13.0) that is a version of SQL Express created specifically for developers.
