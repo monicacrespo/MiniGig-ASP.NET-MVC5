@@ -50,6 +50,7 @@ I've included logic in to create and seed a database using Code First migrations
 When you run the application and it accesses the database for the first time, Code First uses the MigrateDatabaseToLatestVersion initializer class to check if the database matches the data model. If there's a mismatch, Code First 
 * automatically creates the database (if it doesn't exist yet) or 
 * updates the database schema to the latest version (if a database exists but doesn't match the model).
+
 The application implements a Migrations Seed method, so that the method runs after the database is created or the schema is updated. The Migrations Seed method inserts fictional gigs in the development database LocalDB.
 
 
