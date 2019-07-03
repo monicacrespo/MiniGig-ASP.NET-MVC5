@@ -21,7 +21,8 @@ The solution contains eight projects:
 
 Use Cases:
 *   Display list of gigs paged
-    ![picture alt](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/tree/master/MvcMiniGigApp.Web/Images/DisplayNumberOfGigsPerPage.JPG)
+![picture alt](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/tree/master/MvcMiniGigApp.Web/Images/DisplayNumberOfGigsPerPage.JPG)
+    
 *   Create a gig
     *   Gig identifier, name, date, genre of music
     *   gig identifier automatic generated
