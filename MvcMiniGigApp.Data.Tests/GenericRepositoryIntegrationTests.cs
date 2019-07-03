@@ -21,30 +21,33 @@ namespace MvcMiniGigApp.Data.Tests
         private GenericRepository<Gig> _gigRepository;
         private GenericRepository<MusicGenre> _musicGenreRepository;
 
-
         public GenericRepositoryIntegrationTests()
         {
             //Using this initializer disables database initialization for the given context type
-            //Database.SetInitializer(new NullDatabaseInitializer<MiniGigContext>());
-            Database.SetInitializer(new DropCreateDatabaseAlways<MiniGigContext>());
+            Database.SetInitializer(new NullDatabaseInitializer<MiniGigContext>());
             _context = new MiniGigContext();
             _gigRepository = new GenericRepository<Gig>(_context);
             _musicGenreRepository = new GenericRepository<MusicGenre>(_context);
             SetupLogging();
-           
         }
 
         [TestMethod]
         public void CanFindByGigByKeyWithFindMethod()
         {
-            var results = _gigRepository.FindByKey(1);
+            var existingGig = GetDefaultGig();
+            _context.Gigs.Add(existingGig);
+            _context.SaveChanges();
+            int gigId = existingGig.Id;
+
+            var results = _gigRepository.FindByKey(gigId);
             WriteLog();
             Assert.IsTrue(_log.Contains("FROM [dbo].[Gigs"));
         }
 
         [TestMethod]
-        public void CanFindByMusicGenreByKeyWithDynamicLambda()
+        public void CanFindByMusicGenreByKeyWithFindMethod()
         {
+            // hard - code music genre id is 1. See GetDefaultGig() method
             var results = _musicGenreRepository.FindByKey(1);
             WriteLog();
             Assert.IsTrue(_log.Contains("FROM [dbo].[MusicGenres"));
@@ -60,30 +63,19 @@ namespace MvcMiniGigApp.Data.Tests
         [TestMethod]
         public void CanQueryWithSinglePredicate()
         {
-            var results = _gigRepository.FindBy(c => c.Name.StartsWith("L"));
+            var results = _gigRepository.FindBy(c => c.Name.StartsWith("D"));
             WriteLog();
-            Assert.IsTrue(_log.Contains("'L%'"));
+            Assert.IsTrue(_log.Contains("'D%'"));
         }
 
         [TestMethod]
         public void CanQueryWithDualPredicate()
         {
-            var date = new DateTime(2016, 5, 2);
+            var date = new DateTime(2019, 5, 2);
             var results = _gigRepository
-              .FindBy(c => c.Name.StartsWith("L") && c.GigDate >= date);
+              .FindBy(c => c.Name.StartsWith("D") && c.GigDate >= date);
             WriteLog();
-            Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("02/05/2016"));
-        }
-
-        [TestMethod]
-        public void CanQueryWithComplexRelatedPredicate()
-        {
-            var date = new DateTime(2016, 5, 2);
-            var results = _gigRepository
-               .FindBy(c => c.Name.StartsWith("L") && c.GigDate >= date
-                                                       && c.MusicGenreId == 1);
-            WriteLog();
-            Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("02/05/2016") && _log.Contains("1"));
+            Assert.IsTrue(_log.Contains("'D%'") && _log.Contains("02/05/2019"));
         }
 
         [TestMethod]
@@ -131,7 +123,16 @@ namespace MvcMiniGigApp.Data.Tests
             _logBuilder.Append(message);
             _log = _logBuilder.ToString();
         }
-
-
+        private Gig GetDefaultGig()
+        {
+            var dafultGenreInMemory = new MusicGenre { Id = 1, Category = "Default Genre" };
+            return new Gig
+            {
+                Name = string.Format("Default Gig Name"),
+                GigDate = new DateTime(2019, 5, 2),
+                MusicGenreId = 1,
+                MusicGenre = dafultGenreInMemory
+            };
+        }
     }
 }

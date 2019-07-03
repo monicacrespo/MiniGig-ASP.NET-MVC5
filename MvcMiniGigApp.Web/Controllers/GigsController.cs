@@ -18,7 +18,7 @@ namespace MvcMiniGigApp.Controllers
         {
             var listUnpaged = gigService.GetGigs();
 
-            const int pageSize = 10;
+            const int pageSize = 5;
             int pageNumber = (page ?? 1);
             var listPaged = listUnpaged.ToPagedList(pageNumber, pageSize);
 

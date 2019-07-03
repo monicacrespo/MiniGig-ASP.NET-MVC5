@@ -13,7 +13,7 @@ namespace MvcMiniGigApp.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201711131213493_Initial"; }
+            get { return "201906291619520_Initial"; }
         }
         
         string IMigrationMetadata.Source
