@@ -56,5 +56,5 @@ The application implements a Migrations Seed method, so that the method runs aft
 
 
 Software dependencies
-  1. .Net Framework 4.5 or higher
+  1. .Net Framework 4.7.2 or higher
   2.  SQL Express LocalDB (v13.0) that is a version of SQL Express created specifically for developers.
