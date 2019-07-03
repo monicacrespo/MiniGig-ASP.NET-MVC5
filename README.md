@@ -21,18 +21,18 @@ The solution contains eight projects:
 
 Use Cases:
 *   Display list of gigs paged
-![picture](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/tree/master/MvcMiniGigApp.Web/Images/DisplayNumberOfGigsPerPage.JPG)
-    
+*  Details of the specified gig by its identifier
+*  Remove the specified gig by its identifier
 *   Create a gig
     *   Gig identifier, name, date, genre of music
     *   gig identifier automatic generated
 *  Edit the specified gig by its identifier
-   <img src="./MvcMiniGigApp.Web/Images/EditGig.JPG" alt="picture alt" width="100")
 
-   ![picture alt](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/tree/master/MvcMiniGigApp.Web/Images/EditGigDatePicker.JPG)
+![Display gigs paged](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/blob/master/MvcMiniGigApp.Web/Images/DisplayNumberOfGigsPerPage.JPG)
 
-*  Details of the specified gig by its identifier
-*  Remove the specified gig by its identifier
+![Edit gig](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/blob/master/MvcMiniGigApp.Web/Images/EditGig.JPG)
+
+![Use of JQuery Datapicker](https://github.com/monicacrespo/MiniGig-ASP.NET-MVC5/blob/master/MvcMiniGigApp.Web/Images/EditGigDatePicker.JPG)
 
 The code illustrates the following topics:
 
