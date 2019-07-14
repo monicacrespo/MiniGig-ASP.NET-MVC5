@@ -1,25 +1,29 @@
-﻿using System.Net;
-using System.Web.Mvc;
-using MvcMiniGigApp.Domain;
-using PagedList;
-using MvcMiniGigApp.Services;
 namespace MvcMiniGigApp.Controllers
 {
+    using System.Net;
+    using System.Web.Mvc;
+    using MvcMiniGigApp.Domain;    
+    using MvcMiniGigApp.Services;
+    using PagedList;
+
     public class GigsController : Controller
     {
         private IGigService gigService;
+
         public GigsController(IGigService _gigService)
         {
-            gigService = _gigService;
+            this.gigService = _gigService;
         }
 
         // GET: Gigs
         public ActionResult Index(int? page)
         {
-            var listUnpaged = gigService.GetGigs();
+            var listUnpaged = this.gigService.GetGigs();
 
             const int pageSize = 5;
-            int pageNumber = (page ?? 1);
+
+            int pageNumber = page ?? 1;
+
             var listPaged = listUnpaged.ToPagedList(pageNumber, pageSize);
 
             return View(listPaged);
@@ -32,18 +36,22 @@ namespace MvcMiniGigApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var gig = gigService.GetGig(id.Value);
+
+            var gig = this.gigService.GetGig(id.Value);
+
             if (gig == null)
             {
                 return HttpNotFound();
             }
+
             return View(gig);
         }
 
         // GET: Gigs/Create
         public ActionResult Create()
         {
-            ViewBag.MusicGenreId = new SelectList(gigService.GetMusicGenres(), "Id", "Category");
+            ViewBag.MusicGenreId = new SelectList(this.gigService.GetMusicGenres(), "Id", "Category");
+
             return View();
         }
 
@@ -56,11 +64,13 @@ namespace MvcMiniGigApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                gigService.CreateGig(gig);
+                this.gigService.CreateGig(gig);
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MusicGenreId = new SelectList(gigService.GetMusicGenres(), "Id", "Category", gig.MusicGenreId);
+            ViewBag.MusicGenreId = new SelectList(this.gigService.GetMusicGenres(), "Id", "Category", gig.MusicGenreId);
+
             return View(gig);
         }
 
@@ -71,12 +81,16 @@ namespace MvcMiniGigApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var gig = gigService.GetGig(id.Value);
+
+            var gig = this.gigService.GetGig(id.Value);
+
             if (gig == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MusicGenreId = new SelectList(gigService.GetMusicGenres(), "Id", "Category", gig.MusicGenreId);
+
+            ViewBag.MusicGenreId = new SelectList(this.gigService.GetMusicGenres(), "Id", "Category", gig.MusicGenreId);
+
             return View(gig);
         }
 
@@ -89,10 +103,13 @@ namespace MvcMiniGigApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                gigService.UpdateGig(gig);
+                this.gigService.UpdateGig(gig);
+
                 return RedirectToAction("Index");
             }
-            ViewBag.MusicGenreId = new SelectList(gigService.GetMusicGenres(), "Id", "Category", gig.MusicGenreId);
+
+            ViewBag.MusicGenreId = new SelectList(this.gigService.GetMusicGenres(), "Id", "Category", gig.MusicGenreId);
+
             return View(gig);
         }
 
@@ -103,7 +120,8 @@ namespace MvcMiniGigApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var gig = gigService.GetGig(id.Value);
+
+            var gig = this.gigService.GetGig(id.Value);
 
             if (gig == null)
             {
@@ -118,7 +136,8 @@ namespace MvcMiniGigApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            gigService.DeleteGig(id);
+            this.gigService.DeleteGig(id);
+
             return RedirectToAction("Index");
         }
     }

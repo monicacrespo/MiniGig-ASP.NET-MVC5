@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moq;
-
 namespace SharedKernel.Data
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Data.Entity;
+	using System.Linq;
+	using System.Text;
+	using System.Threading.Tasks;
+	using Moq;
+
     public static class TestHelpers
     {
         public static Mock<DbSet<T>> GetQueryableMockDbSet<T>() where T : class
@@ -29,9 +29,9 @@ namespace SharedKernel.Data
             mockDbSet.As<IQueryable<T>>().Setup(m => m.Expression).Returns(queryableData.Expression);
             mockDbSet.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(queryableData.ElementType);
             mockDbSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(queryableData.GetEnumerator());
-            //mock the AsNoTracking() method
+            // Mock the AsNoTracking() method
             mockDbSet.Setup(x => x.AsNoTracking()).Returns(mockDbSet.Object);
-            //mock the Include() method
+            // Mock the Include() method
             mockDbSet.Setup(x => x.Include(It.IsAny<string>())).Returns(mockDbSet.Object);
             return mockDbSet;
         }

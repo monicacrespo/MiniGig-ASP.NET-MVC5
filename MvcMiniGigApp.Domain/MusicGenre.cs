@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
 namespace MvcMiniGigApp.Domain
 {
+    using System.ComponentModel.DataAnnotations;
+
     /// <summary>
     /// Class which contains the music genre data
     /// </summary>
@@ -9,9 +9,8 @@ namespace MvcMiniGigApp.Domain
     {
         public int Id { get; set; }
 
-        //Alternate keys can not be configured using Data Annotations.
+        // Alternate keys can not be configured using Data Annotations.
         [Display(Name = "Music Genre")]
         public string Category { get; set; }
-    }
-    
+    }    
 }

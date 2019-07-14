@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using MvcMiniGigApp.Domain;
 namespace MvcMiniGigApp.Services
 {
+    using System.Collections.Generic;
+    using MvcMiniGigApp.Domain;
+
     public interface IGigService
     {
         IEnumerable<MusicGenre> GetMusicGenres();

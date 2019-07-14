@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using MvcMiniGigApp.Domain;
-
 namespace MvcMiniGigApp.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using MvcMiniGigApp.Domain;
+
     public class DataHelpers
     {
         public static void NewDbWithSeed()
@@ -34,13 +34,13 @@ namespace MvcMiniGigApp.Data
                     MusicGenreId = 3,
                     MusicGenre = punkMusic
                 };
+
                 var s = new Gig
                 {
                     Name = "Ed Sheeran Pop",
                     GigDate = new DateTime(2019, 5, 2),
                     MusicGenreId = 1,
                     MusicGenre = popMusic
-
                 };
 
                 var g = new Gig
@@ -59,7 +59,7 @@ namespace MvcMiniGigApp.Data
                     MusicGenre = reggaetonMusic
                 };
 
-                var K = new Gig
+                var k = new Gig
                 {
                     Name = "David Bowie",
                     GigDate = new DateTime(2019, 5, 2),
@@ -88,16 +88,16 @@ namespace MvcMiniGigApp.Data
                     });
                 }
 
-                context.Gigs.AddRange(new List<Gig> { j, s, g, l, K, a });
+                context.Gigs.AddRange(new List<Gig> { j, s, g, l, k, a });
                 context.Gigs.AddRange(gigList);
 
                 context.SaveChanges();
 
-                //context.Database.ExecuteSqlCommand(
+                // context.Database.ExecuteSqlCommand(
                 //  @"CREATE PROCEDURE GetOldGigs
                 //            AS  SELECT * FROM Gigs WHERE GigDate<='1/1/1980'");
 
-                //context.Database.ExecuteSqlCommand(
+                // context.Database.ExecuteSqlCommand(
                 //   @"CREATE PROCEDURE DeleteGigViaId
                 //             @Id int
                 //             AS
@@ -107,4 +107,3 @@ namespace MvcMiniGigApp.Data
         }
     }
 }
-

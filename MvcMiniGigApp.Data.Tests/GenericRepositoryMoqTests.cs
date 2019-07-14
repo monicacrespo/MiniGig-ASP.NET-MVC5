@@ -1,17 +1,16 @@
-﻿using DisconnectedGenericRepository;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvcMiniGigApp.Domain;
-using SharedKernel.Data;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using Moq;
 namespace MvcMiniGigApp.Data.Tests
 {
-    /// <summary>
-    /// Summary description for GenericRepositoryMoqTests
-    /// </summary>
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data.Entity;
+    using System.Linq;
+    using DisconnectedGenericRepository;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
+    using MvcMiniGigApp.Domain;
+    using SharedKernel.Data;
+
     [TestClass]
     public class GenericRepositoryMoqTests
     {
@@ -20,78 +19,80 @@ namespace MvcMiniGigApp.Data.Tests
             Database.SetInitializer(new DropCreateDatabaseAlways<MiniGigContext>());
         }
 
-        #region Testing query scenarios
-
         [TestMethod]
+        [Category("Testing Moq query scenarios")]
         public void Get_AllInclude_Should_Get_Expected_Amount_Of_Entities()
         {
-            //arrange
-            var gigsInMemory = GetDummyGigs(2).ToList();
+            // arrange
+            var gigsInMemory = this.GetDummyGigs(2).ToList();
             var mockGigObjectDbSet = TestHelpers.GetQueryableMockDbSet<Gig>(gigsInMemory);
             var miniGigMockingContext = new Mock<MiniGigContext>();
             miniGigMockingContext.Setup(c => c.Set<Gig>()).Returns(mockGigObjectDbSet.Object);
             var gigRepo = new GenericRepository<Gig>(miniGigMockingContext.Object);
 
-            //act
+            // act
             var actualGigs = gigRepo.AllInclude(g => g.MusicGenre).ToList();
 
-            //assert            
+            // assert
             Assert.AreEqual(gigsInMemory.Count(), actualGigs.Count);
             Assert.AreEqual(gigsInMemory[0].Name, actualGigs[0].Name);
         }
 
         [TestMethod]
+        [Category("Testing Moq query scenarios")]
         public void Get_AllInclude_GigListSortedDbContextAndDbSetMocked()
         {
-            //arrange           
+            // arrange
             var expectedGigsInMemory = new List<Gig>
             {
-                new Gig {Name = "BBB"},
-                new Gig {Name = "ZZZ"},
-                new Gig {Name = "AAA"},
+                new Gig { Name = "BBB" },
+                new Gig { Name = "ZZZ" },
+                new Gig { Name = "AAA" },
             };
 
             var mockGigObjectDbSet = TestHelpers.GetQueryableMockDbSet(expectedGigsInMemory);
 
             var miniGigMockingContext = new Mock<MiniGigContext>();
 
-            //setup the Set method on the DbContext for your mocked DbSet.
+            // setup the Set method on the DbContext for your mocked DbSet.
             miniGigMockingContext.Setup(c => c.Set<Gig>()).Returns(mockGigObjectDbSet.Object);
 
-            //act
+            // act
             var gigRepo = new GenericRepository<Gig>(miniGigMockingContext.Object);
             var actualGigs = gigRepo.AllInclude(g => g.Name, OrderByType.Ascending, g => g.MusicGenre).ToList();
 
-            //assert
-            Assert.AreEqual(expectedGigsInMemory.Count, actualGigs.Count());// Page count is available after calling the .ToList() method
+            // assert
+            Assert.AreEqual(expectedGigsInMemory.Count, actualGigs.Count()); // Page count is available after calling the .ToList() method
             Assert.AreEqual(expectedGigsInMemory[2].Name, actualGigs[0].Name);
             Assert.AreEqual("BBB", actualGigs[1].Name);
             Assert.AreEqual(expectedGigsInMemory[1].Name, actualGigs[2].Name);
         }
+
         [TestMethod]
+        [Category("Testing Moq query scenarios")]
         public void Get_All_Should_Get_Expected_Amount_Of_Entities()
         {
-            //arrange
-            var gigsInMemory = GetDummyGigs(2).ToList();
+            // arrange
+            var gigsInMemory = this.GetDummyGigs(2).ToList();
             var mockGigObjectDbSet = TestHelpers.GetQueryableMockDbSet<Gig>(gigsInMemory);
             var miniGigMockingContext = new Mock<MiniGigContext>();
             miniGigMockingContext.Setup(c => c.Set<Gig>()).Returns(mockGigObjectDbSet.Object);
             var gigRepo = new GenericRepository<Gig>(miniGigMockingContext.Object);
 
-            //act
+            // act
             var actualGigs = gigRepo.All().ToList();
 
-            //assert
+            // assert
             Assert.AreEqual(gigsInMemory.Count(), actualGigs.Count);
         }
 
         [TestMethod]
+        [Category("Testing Moq query scenarios")]
         public void GetSingle_Should_Get_Expected_Entity()
         {
             // Arrange
-
             var targetGigId = 2;
-            var gigsInMemory = GetDummyGigs(3).ToList();
+            var gigsInMemory = this.GetDummyGigs(3).ToList();
             var mockGigObjectDbSet = TestHelpers.GetQueryableMockDbSet<Gig>(gigsInMemory);
             var miniGigMockingContext = new Mock<MiniGigContext>();
             miniGigMockingContext.Setup(c => c.Set<Gig>()).Returns(mockGigObjectDbSet.Object);
@@ -99,7 +100,7 @@ namespace MvcMiniGigApp.Data.Tests
             var expectedGig = gigsInMemory.FirstOrDefault(x => x.Id == targetGigId);
 
             // Act
-            //Gig gig = gigRepo.FindByKey(targetGigId);            
+            // Gig gig = gigRepo.FindByKey(targetGigId);
             var gig = gigRepo.FindBy(x => x.Id == targetGigId).FirstOrDefault();
 
             // Assert          
@@ -108,11 +109,12 @@ namespace MvcMiniGigApp.Data.Tests
         }
 
         [TestMethod]
+        [Category("Testing Moq query scenarios")]
         public void GetSingle_Should_Return_Null()
         {
             // Arrange
             var targetGigId = 4;
-            var gigsInMemory = GetDummyGigs(3).ToList();
+            var gigsInMemory = this.GetDummyGigs(3).ToList();
             var mockGigObjectDbSet = TestHelpers.GetQueryableMockDbSet<Gig>(gigsInMemory);
             var miniGigMockingContext = new Mock<MiniGigContext>();
             miniGigMockingContext.Setup(c => c.Set<Gig>()).Returns(mockGigObjectDbSet.Object);
@@ -126,31 +128,26 @@ namespace MvcMiniGigApp.Data.Tests
             Assert.AreSame(expectedGig, gig);
         }
 
-
-        #endregion
-
-        #region Testing non-query scenarios
-
         [TestMethod]
+        [Category("Testing Moq non-query scenarios")]
         public void Insert_Should_Call_Add_Once_And_SaveChanges()
         {
-            //arrange
+            // arrange
             var newGigsInMemory = new List<Gig>();
-            var gigsInMemory = GetDummyGigs(1).ToList();
+            var gigsInMemory = this.GetDummyGigs(1).ToList();
             var mockGigObjectDbSet = TestHelpers.GetQueryableMockDbSet<Gig>(newGigsInMemory);
 
             var miniGigMockingContext = new Mock<MiniGigContext>();
             miniGigMockingContext.Setup(c => c.Set<Gig>()).Returns(mockGigObjectDbSet.Object);
             var gigRepo = new GenericRepository<Gig>(miniGigMockingContext.Object);
 
-            //act
+            // act
             gigRepo.Insert(gigsInMemory.FirstOrDefault());
 
-            //assert
+            // assert
             mockGigObjectDbSet.Verify(m => m.Add(It.IsAny<Gig>()), Times.Once());
             miniGigMockingContext.Verify(m => m.SaveChanges(), Times.Once());
         }
-        #endregion
 
         private IEnumerable<Gig> GetDummyGigs(int count)
         {
@@ -184,6 +181,7 @@ namespace MvcMiniGigApp.Data.Tests
                 };
                 gigsInMemory.Add(gig);
             }
+
             return gigsInMemory;
         }
     }

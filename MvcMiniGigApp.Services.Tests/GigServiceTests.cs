@@ -1,37 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvcMiniGigApp.Domain;
-using MvcMiniGigApp.Data;
-using DisconnectedGenericRepository;
-using System.Data.Entity;
-
 namespace MvcMiniGigApp.Services.Tests
 {
-    /// <summary>
-    /// Summary description for GigServicesTests
-    /// </summary>
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using DisconnectedGenericRepository;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using MvcMiniGigApp.Data;
+    using MvcMiniGigApp.Domain;
+    
     [TestClass]
     public class GigServiceTests
     {
-        private const int NON_EXISTENT_GIG_ID = -1;
+        private const int NONEXISTENTGIGID = -1;
         private static IGigService gigService;
 
-        private MiniGigContext _context;
-        private GenericRepository<Gig> _gigRepository;
-        private GenericRepository<MusicGenre> _musicGenreRepository;
+        private MiniGigContext context;
+        private GenericRepository<Gig> gigRepository;
+        private GenericRepository<MusicGenre> musicGenreRepository;
 
         public GigServiceTests()
         {
-            //app.config points to a special testing database          
+            // app.config points to a special testing database
             Database.SetInitializer(new NullDatabaseInitializer<MiniGigContext>());
-            _context = new MiniGigContext();
-            _gigRepository = new GenericRepository<Gig>(_context);
-            _musicGenreRepository = new GenericRepository<MusicGenre>(_context);
-            gigService = new GigService(_gigRepository, _musicGenreRepository);
+            this.context = new MiniGigContext();
+            this.gigRepository = new GenericRepository<Gig>(this.context);
+            this.musicGenreRepository = new GenericRepository<MusicGenre>(this.context);
+            gigService = new GigService(this.gigRepository, this.musicGenreRepository);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void CanInsertGigWithMusicGenre()
         {
             var gig = new Gig
@@ -44,10 +41,10 @@ namespace MvcMiniGigApp.Services.Tests
             Assert.AreNotEqual(0, gig.Id);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void FindNonExistentGig()
         {
-            Gig actual = gigService.GetGig(NON_EXISTENT_GIG_ID);
+            Gig actual = gigService.GetGig(NONEXISTENTGIGID);
             Assert.IsNull(actual);
         }
         
@@ -65,11 +62,11 @@ namespace MvcMiniGigApp.Services.Tests
                     Id = i,
                     Name = string.Concat("gigNameTest", i),
                     GigDate = tempDate,
-                    MusicGenreId = 1
-                    ,
+                    MusicGenreId = 1,
                     MusicGenre = popMusicInMemory
                 };
             }
+
             endDate = tempDate;
         }
     }

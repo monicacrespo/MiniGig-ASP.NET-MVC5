@@ -1,4 +1,4 @@
-﻿namespace SharedKernel
+namespace SharedKernel
 {
     public interface IEntity
     {

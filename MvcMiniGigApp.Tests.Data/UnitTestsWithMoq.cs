@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcMiniGigApp.Data;
 using MvcMiniGigApp.Domain;
 using System.Collections.Generic;

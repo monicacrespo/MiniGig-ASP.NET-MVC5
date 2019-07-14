@@ -1,4 +1,4 @@
-﻿using DisconnectedGenericRepository;
+using DisconnectedGenericRepository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcMiniGigApp.Data;
 using MvcMiniGigApp.Domain;
