@@ -14,7 +14,8 @@ MvcMiniGigApp.Web/Content/* linguist-vendored
 MvcMiniGigApp.Web/Content/themes/base/* linguist-vendored
 
 MvcMiniGigApp.Web/Scripts/* linguist-vendored
-MvcMiniGigApp.Web/Scripts/*/* linguist-vendored
+MvcMiniGigApp.Web/Scripts/esm/* linguist-vendored
+MvcMiniGigApp.Web/Scripts/umd/* linguist-vendored
 
 # Serialisation
 *.json     text
