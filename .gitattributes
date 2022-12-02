@@ -10,8 +10,8 @@
 # Ignore all files (css) in the MvcMiniGigApp.Web/Content folder 
 MvcMiniGigApp.Web/Content/* linguist-vendored
 
-# Ignore all files (css) in the MvcMiniGigApp.Web/Content folder 
-MvcMiniGigApp.Web/Scripts/*/* linguist-vendored
+# Ignore all files (css) in the MvcMiniGigApp.Web/Content/themes/base folder 
+MvcMiniGigApp.Web/Content/themes/base/* linguist-vendored
 
 MvcMiniGigApp.Web/Scripts/* linguist-vendored
 MvcMiniGigApp.Web/Scripts/*/* linguist-vendored
