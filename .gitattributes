@@ -6,3 +6,5 @@
 *.csx      text diff=csharp
 *.sln      text eol=crlf
 *.csproj   text eol=crlf
+
+MvcMiniGigApp.Web/Content/* linguist-vendored
