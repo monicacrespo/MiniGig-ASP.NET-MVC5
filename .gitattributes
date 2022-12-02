@@ -8,3 +8,4 @@
 *.csproj   text eol=crlf
 
 MvcMiniGigApp.Web/Content/* linguist-vendored
+MvcMiniGigApp.Web/Scripts/* linguist-vendored
